@@ -1,0 +1,6 @@
+<ruleset name="Litres.ru">
+  <target host="litres.ru" />
+  <target host="www.litres.ru" />
+
+  <rule from="^http:" to="https:" />
+</ruleset>
