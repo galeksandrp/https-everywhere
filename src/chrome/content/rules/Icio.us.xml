@@ -36,7 +36,7 @@
 		- Bug on api.del from api.mixbit.com
 
 -->
-<ruleset name="icio.us">
+<ruleset name="icio.us" default_off="see #4395">
 
 	<!--	Direct rewrites:
 				-->
