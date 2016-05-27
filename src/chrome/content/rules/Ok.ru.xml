@@ -16,6 +16,8 @@
 
 	<!--	Direct rewrites:
 				-->
+	<target host="ok.ru" />
+	<target host="www.ok.ru" />
 	<target host="v.ok.ru" />
 
 		<!--	Redirects to http:
