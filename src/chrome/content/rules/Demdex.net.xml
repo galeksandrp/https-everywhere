@@ -34,7 +34,8 @@
 	<!--securecookie host="\.dpm\.demdex\.net$" name="^(DexLifeCycle|dexoo|dpm)$" /-->
 
 	<securecookie host=".*\.demdex\.net$" name=".+" />
-
+	
+	<exclusion pattern="^http://fast\.cbsi\.demdex\.net/" />
 
 	<rule from="^http:"
 		to="https:" />
