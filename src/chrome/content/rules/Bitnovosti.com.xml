@@ -1,0 +1,6 @@
+<ruleset name="Bitnovosti.com">
+	<target host="bitnovosti.com" />
+	<target host="www.bitnovosti.com" />
+
+	<rule from="^http:" to="https:" />
+</ruleset>
