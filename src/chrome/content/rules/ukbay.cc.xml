@@ -1,0 +1,19 @@
+<ruleset name="ukbay.cc">
+	<target host="ukbay.cc" />
+	<target host="www.ukbay.cc" />
+	<target host="proxxy.site" />
+	<target host="www.proxxy.site" />
+	<target host="limetorrents.ws" />
+	<target host="www.limetorrents.ws" />
+	<target host="extratorrent.io" />
+	<target host="www.extratorrent.io" />
+	<target host="thesimplebay.net" />
+	<target host="www.thesimplebay.net" />
+	<target host="tpbonion.com" />
+	<target host="www.tpbonion.com" />
+	<target host="themagnetbay.net" />
+	<target host="www.themagnetbay.net" />
+	
+	<rule from="^http:"
+		to="https:" />
+</ruleset>

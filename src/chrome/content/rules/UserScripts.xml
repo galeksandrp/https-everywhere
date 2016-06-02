@@ -1,7 +1,4 @@
 <!--
-Disabled by https-everywhere-checker because:
-Fetch error: http://userscripts.org/ => https://userscripts.org/: (28, 'Connection timed out after 10000 milliseconds')
-Fetch error: http://www.userscripts.org/ => https://userscripts.org/: (28, 'Connection timed out after 10001 milliseconds')
 	CDN buckets:
 
 		- s3.amazonaws.com/uso_ss/
@@ -24,13 +21,11 @@ Fetch error: http://www.userscripts.org/ => https://userscripts.org/: (28, 'Conn
 	* Secured by us
 
 -->
-<ruleset name="UserScripts.org" default_off='failed ruleset test'>
+<ruleset name="UserScripts.org">
   <target host="userscripts.org" />
   <target host="www.userscripts.org" />
 
-  <exclusion pattern="^http://(?:www\.)?userscripts\.org/scripts/source/" />
-  <rule from="^http://www\.userscripts\.org/"
-	to="https://userscripts.org/"/>
-  <rule from="^http://userscripts\.org/"
-	to="https://userscripts.org/"/>
+  <!-- <exclusion pattern="^http://(?:www\.)?userscripts\.org/scripts/source/" /> -->
+  <rule from="^http://(www\.)?userscripts\.org/"
+	to="https://$1userscripts-mirror.org/"/>
 </ruleset>

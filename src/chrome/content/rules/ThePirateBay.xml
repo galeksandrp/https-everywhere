@@ -1,6 +1,17 @@
 <!--
 	Non-functional domain:
 		- (www.)promobay.org	(hostname mismatch, CN: *.webfaction.com, webfaction.com)
+		
+<ruleset name="The Pirate Bay legacy">
+<ruleset name="thepiratebay-proxylist.org">
+<ruleset name="proxybay.tv">
+<ruleset name="themirrorbay.com">
+<ruleset name="ukbay.cc">
+<ruleset name="proxybay.top">
+<ruleset name="piratebayproxylist.co">
+<ruleset name="thephoenixbay.com">
+<ruleset name="proxybay.pl">
+<ruleset name="thepirateportal.org">
 -->
 
 <ruleset name="The Pirate Bay">
@@ -13,8 +24,12 @@
 	<target host="www.pirates-forum.org" />
 	<target host="kanyebay.com" />
 	<target host="www.kanyebay.com" />
+	<target host="tpb.run" />
+	<target host="www.tpb.run" />
 
 	<!-- Should probably split the proxy stuff out to a separate module and cover all the proxies listed at thepiratebay-proxylist.org -->
+	<target host="thepiratebay.cr" />
+	<target host="www.thepiratebay.cr" />
 	<target host="proxybay.la" />
 	<target host="www.proxybay.la" />
 

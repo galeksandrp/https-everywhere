@@ -1,0 +1,7 @@
+<ruleset name="themirrorbay.com">
+	<target host="thepiratebay.run" />
+	<target host="www.thepiratebay.run" />
+	
+	<rule from="^http:"
+		to="https:" />
+</ruleset>
