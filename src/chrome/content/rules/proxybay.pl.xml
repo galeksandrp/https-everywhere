@@ -2,19 +2,19 @@
 	<target host="piratesbay.pw" />
 	<target host="www.piratesbay.pw" />
 	<target host="thepiratebay.casa" />
-	<target host="www.thepiratebay.casa" />
+	<!-- <target host="www.thepiratebay.casa" /> -->
 	<target host="thepiratebay.中国" />
 	<target host="www.thepiratebay.中国" />
 	<target host="thepiratebay.みんな" />
 	<target host="www.thepiratebay.みんな" />
-	<target host="piratebay1.com" />
-	<target host="www.piratebay1.com" />
+	<!-- <target host="piratebay1.com" /> -->
+	<!-- <target host="www.piratebay1.com" /> -->
 	<target host="torrentdr.com" />
 	<target host="www.torrentdr.com" />
-	<target host="uj3wazyk5u4hnvtk.onion.nu" />
-	<target host="www.uj3wazyk5u4hnvtk.onion.nu" />
-	<target host="pbay.gq" />
-	<target host="www.pbay.gq" />
+	<!-- <target host="uj3wazyk5u4hnvtk.onion.nu" /> -->
+	<!-- <target host="www.uj3wazyk5u4hnvtk.onion.nu" /> -->
+	<!-- <target host="pbay.gq" /> -->
+	<!-- <target host="www.pbay.gq" /> -->
 	
 	<rule from="^http:"
 		to="https:" />

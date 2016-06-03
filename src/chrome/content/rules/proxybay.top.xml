@@ -40,11 +40,11 @@
 	<target host="thepiratebay.press" />
 	<target host="www.thepiratebay.press" />
 	<target host="thepiratebay.immunicity.date" />
-	<target host="www.thepiratebay.immunicity.date" />
+	<!-- <target host="www.thepiratebay.immunicity.date" /> -->
 	<target host="piratebay.immunicity.press" />
-	<target host="www.piratebay.immunicity.press" />
+	<!-- <target host="www.piratebay.immunicity.press" /> -->
 	<target host="piratebay.immunicity.online" />
-	<target host="www.piratebay.immunicity.online" />
+	<!-- <target host="www.piratebay.immunicity.online" /> -->
 	
 	<rule from="^http:"
 		to="https:" />
