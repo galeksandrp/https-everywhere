@@ -22,7 +22,7 @@
 	<target host="tpb.dashitz.com" />
 	<!-- <target host="www.tpb.dashitz.com" /> -->
 	<target host="thehiddenbay.eu" />
-	<target host="www.thehiddenbay.eu" />
+	<!-- <target host="www.thehiddenbay.eu" /> -->
 	<target host="tpb.press" />
 	<target host="www.tpb.press" />
 	<target host="mybestbay.com" />
