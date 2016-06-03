@@ -1,5 +1,5 @@
 <ruleset name="proxybay.pl">
-	<target host="piratesbay.pw" />
+	<!-- <target host="piratesbay.pw" /> -->
 	<target host="www.piratesbay.pw" />
 	<target host="thepiratebay.casa" />
 	<!-- <target host="www.thepiratebay.casa" /> -->

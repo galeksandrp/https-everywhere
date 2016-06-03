@@ -1,5 +1,5 @@
 <ruleset name="ukbay.cc">
-	<target host="ukbay.cc" />
+	<!-- <target host="ukbay.cc" /> -->
 	<target host="www.ukbay.cc" />
 	<target host="proxxy.site" />
 	<target host="www.proxxy.site" />

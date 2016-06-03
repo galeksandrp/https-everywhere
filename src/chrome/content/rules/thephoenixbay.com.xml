@@ -1,5 +1,5 @@
 <ruleset name="thephoenixbay.com">
-	<target host="theproxy.site" />
+	<!-- <target host="theproxy.site" /> -->
 	<target host="www.theproxy.site" />
 	<target host="pbproxy.tech" />
 	<target host="www.pbproxy.tech" />
@@ -71,7 +71,7 @@
 	<target host="thepiratebay.rs" />
 	<target host="www.thepiratebay.rs" />
 	<!-- <target host="www.battleit.ee" /> -->
-	<target host="battleit.ee" />
+	<!-- <target host="battleit.ee" /> -->
 	<!-- <target host="downloadbay.eu" /> -->
 	<!-- <target host="www.downloadbay.eu" /> -->
 	<!-- <target host="thepiratebay.cn.com" /> -->

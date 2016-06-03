@@ -1,5 +1,5 @@
 <ruleset name="proxybay.tv">
-	<target host="proxybay.tv" />
+	<!-- <target host="proxybay.tv" /> -->
 	<target host="www.proxybay.tv" />
 	<target host="pirateproxy.pe" />
 	<target host="www.pirateproxy.pe" />

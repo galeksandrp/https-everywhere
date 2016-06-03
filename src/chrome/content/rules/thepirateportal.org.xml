@@ -1,5 +1,5 @@
 <ruleset name="thepirateportal.org">
-	<target host="piratebayaccess.co.uk" />
+	<!-- <target host="piratebayaccess.co.uk" /> -->
 	<target host="www.piratebayaccess.co.uk" />
 	<target host="piratebayfast.co.uk" />
 	<target host="www.piratebayfast.co.uk" />

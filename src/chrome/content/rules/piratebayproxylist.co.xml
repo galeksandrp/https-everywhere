@@ -1,5 +1,5 @@
 <ruleset name="piratebayproxylist.co">
-	<target host="theproxybay.pw" />
+	<!-- <target host="theproxybay.pw" /> -->
 	<target host="www.theproxybay.pw" />
 	<target host="thepbproxy.website" />
 	<target host="www.thepbproxy.website" />
@@ -188,7 +188,7 @@
 	<!-- <target host="piratebaybyproxy.com" /> -->
 	<!-- <target host="www.piratebaybyproxy.com" /> -->
 	<!-- <target host="www.dapiratebay.eu" /> -->
-	<target host="dapiratebay.eu" />
+	<!-- <target host="dapiratebay.eu" /> -->
 	<!-- <target host="tpb.tv-shuffle.ch" /> -->
 	<!-- <target host="www.tpb.tv-shuffle.ch" /> -->
 	<target host="thepiratebay.mg" />
@@ -208,7 +208,7 @@
 	<!-- <target host="proxytank.com" /> -->
 	<!-- <target host="www.proxytank.com" /> -->
 	<!-- <target host="www.fastpiratebayproxy.com" /> -->
-	<target host="fastpiratebayproxy.com" />
+	<!-- <target host="fastpiratebayproxy.com" /> -->
 	<!-- <target host="thepiratebay.uno" /> -->
 	<!-- <target host="www.thepiratebay.uno" /> -->
 	<!-- <target host="proxybay.me" /> -->
@@ -224,7 +224,7 @@
 	<target host="tpb.genyaa.org" />
 	<!-- <target host="www.tpb.genyaa.org" /> -->
 	<!-- <target host="www.battleit.ee/tpb" /> -->
-	<target host="battleit.ee/tpb" />
+	<!-- <target host="battleit.ee/tpb" /> -->
 	<!-- <target host="deathbay.com" /> -->
 	<!-- <target host="www.deathbay.com" /> -->
 	<!-- <target host="tpb.fast-hosting.net" /> -->
@@ -286,9 +286,9 @@
 	<!-- <target host="piratebay.skey.sk" /> -->
 	<!-- <target host="www.piratebay.skey.sk" /> -->
 	<!-- <target host="www.pirateshore.nl" /> -->
-	<target host="pirateshore.nl" />
+	<!-- <target host="pirateshore.nl" /> -->
 	<!-- <target host="www.dieroschtibay.org" /> -->
-	<target host="dieroschtibay.org" />
+	<!-- <target host="dieroschtibay.org" /> -->
 	<target host="scenerelease.com" />
 	<target host="www.scenerelease.com" />
 	<!-- <target host="tpbtpb.com" /> -->
@@ -362,7 +362,7 @@
 	<!-- <target host="tpb.so" /> -->
 	<!-- <target host="www.tpb.so" /> -->
 	<!-- <target host="www.tpb.gr" /> -->
-	<target host="tpb.gr" />
+	<!-- <target host="tpb.gr" /> -->
 	<!-- <target host="tpb.pm" /> -->
 	<!-- <target host="www.tpb.pm" /> -->
 	<!-- <target host="tpb.madfedora.site40.net" /> -->
@@ -382,7 +382,7 @@
 	<!-- <target host="proxy.arrr.nl" /> -->
 	<!-- <target host="www.proxy.arrr.nl" /> -->
 	<!-- <target host="www.piratehome.tk" /> -->
-	<target host="piratehome.tk" />
+	<!-- <target host="piratehome.tk" /> -->
 	<!-- <target host="thepirateportal.com" /> -->
 	<!-- <target host="www.thepirateportal.com" /> -->
 	<!-- <target host="tpb.par-anoia.net" /> -->
@@ -400,7 +400,7 @@
 	<target host="pirateproxy.ca" />
 	<target host="www.pirateproxy.ca" />
 	<!-- <target host="www.bayproxy.com" /> -->
-	<target host="bayproxy.com" />
+	<!-- <target host="bayproxy.com" /> -->
 	<!-- <target host="thepirate.me" /> -->
 	<!-- <target host="www.thepirate.me" /> -->
 	<!-- <target host="tpb.cas.yt" /> -->

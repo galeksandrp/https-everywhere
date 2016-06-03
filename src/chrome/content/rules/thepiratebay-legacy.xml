@@ -1,5 +1,5 @@
 <ruleset name="The Pirate Bay legacy">
-	<target host="piratebay.se" />
+	<!-- <target host="piratebay.se" /> -->
 	<target host="www.piratebay.se" />
 	<target host="thepiratebay.gl" />
 	<target host="www.thepiratebay.gl" />

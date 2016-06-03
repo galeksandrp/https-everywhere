@@ -22,7 +22,7 @@
 
 -->
 <ruleset name="UserScripts.org">
-  <target host="userscripts.org" />
+  <!-- <target host="userscripts.org" /> -->
   <target host="www.userscripts.org" />
 
   <!-- <exclusion pattern="^http://(?:www\.)?userscripts\.org/scripts/source/" /> -->

@@ -1,5 +1,5 @@
 <ruleset name="thepiratebay-proxylist.org">
-	<target host="ukpirate.click" />
+	<!-- <target host="ukpirate.click" /> -->
 	<!-- <target host="www.ukpirate.click" /> -->
 	<target host="ukpirate.org" />
 	<!-- <target host="www.ukpirate.org" /> -->
