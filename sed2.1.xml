@@ -1,0 +1,18 @@
+s%ERROR src/chrome/content/rules/.*\.xml: Fetch error: .* => https://%%
+s%/: (51, "SSL: no alternative certificate subject name matches target host name '.*'")% mismatch%
+s%/: (28, 'Connection timed out after .* milliseconds')% timed out%
+s%/: (7, 'Failed to connect to .* port 443: Connection refused')% refused%
+s%/: (60, 'SSL certificate problem: certificate has expired')% expired%
+s%/: (6, 'Could not resolve host: .*')% nonexist%
+s%/: (60, 'SSL certificate problem: self signed certificate')% self signed%
+s%/: (7, 'Failed to connect to .* port 443: No route to host')% timed out%
+s%/: Too many redirects while fetching 'https://.*/'% redirect%
+s%/: (35, 'Unknown SSL protocol error in connection to .*:443 ')% protocol error%
+s%/: (7, 'Failed to connect to .* port 443: Connection timed out')% timed out%
+s%/: (60, 'SSL certificate problem: unable to get local issuer certificate')% self signed%
+s%/: (60, 'SSL certificate problem: self signed certificate in certificate chain')% self signed%
+s%/: (28, 'Operation timed out after .* milliseconds with 0 out of 0 bytes received')% timed out%
+s%/: (28, 'Operation timed out after .* milliseconds with 0 bytes received')% timed out%
+s%/: (35, 'error:140770FC:SSL routines:SSL23_GET_SERVER_HELLO:unknown protocol')% protocol error%
+s%ERROR src/chrome/content/rules/.*\.xml: Non-2xx HTTP code: http://%%
+s%/ (200) => https://.*% non-2xx http code%

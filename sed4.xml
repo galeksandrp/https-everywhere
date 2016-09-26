@@ -1,0 +1,2 @@
+s%INFO Big distance 0\..*: http://.*/ (.*) -> https://%%
+s%/ (.*). Rulefile: src/chrome/content/rules/.*\.xml =====% different content%

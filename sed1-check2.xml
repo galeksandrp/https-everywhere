@@ -1,0 +1,2 @@
+s%failure: Hostname %s\&.*<target host="%
+s% with platform '' shows up in .* different rulesets.%" />\&replace\&%

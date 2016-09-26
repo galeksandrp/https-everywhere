@@ -1,0 +1,4 @@
+s%ERROR src/chrome/content/rules/.*\.xml: Fetch error: http://%s\&.*<target host="%
+s%/ => https://.*%" />\&replace\&%
+s%ERROR src/chrome/content/rules/.*\.xml: Non-2xx HTTP code: http://%s\&.*<target host="%
+s%/ (200) => https://.*%" />\&replace\&%
