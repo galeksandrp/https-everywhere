@@ -1,0 +1,6 @@
+<ruleset name="quickhash.com">
+	<target host="quickhash.com" />
+	<target host="www.quickhash.com" />
+
+	<rule from="^http:" to="https:" />
+</ruleset>
