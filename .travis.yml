@@ -1,13 +1,28 @@
-sudo: required
-language: generic
-services:
-  - docker
+language: python
+cache: pip
+python:
+  - "2.7"
+addons:
+  apt:
+    packages:
+    - libxml2-dev
+    - libxml2-utils
+    - libxslt1-dev
+    - zip
+    - sqlite3
+    - libcurl4-openssl-dev
+    - libssl-dev
+install:
+  - pip install --no-allow-insecure --no-allow-external -r requirements.txt
+  - pip install -r test/rules/requirements.txt
+  - pip install -r test/chromium/requirements.txt
+  - echo '<ruleset name="HSTS">' > HSTS.xml
+  - wget https://chromium.googlesource.com/chromium/src.git/+archive/master/net/http.tar.gz -O - | tar xz transport_security_state_static.json -O | sed 's&^ *//.*&&' | jq -r '.entries[].name' | xargs -n1 -i echo -e '\t<target host="*.{}" />\n\t<target host="{}" />' >> HSTS.xml
+  - echo -e '\n\t<rule from="^http:" to="https:" />\n</ruleset>' >> HSTS.xml
 script:
-  - test/travis.sh
-env:
-  - TEST=firefox FIREFOX=firefox-dev
-  - TEST=firefox FIREFOX=firefox-latest
-  - TEST=firefox FIREFOX=firefox-esr-latest
-  - TEST=chromium
-  - TEST=rules
-  - TEST=fetch
+  - git add src/chrome/content/rules
+  - utils/ruleset_filenames_validate.py
+  - utils/validate.sh
+  - test/rules.sh
+notifications:
+  email: false
