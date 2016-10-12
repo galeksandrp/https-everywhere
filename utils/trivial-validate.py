@@ -164,6 +164,7 @@ xpath_from = etree.XPath("/ruleset/rule/@from")
 xpath_to = etree.XPath("/ruleset/rule/@to")
 
 host_counter = Counter()
+host_filenames = {}
 for filename in filenames:
     xml_parser = etree.XMLParser(remove_blank_text=True)
 
@@ -200,15 +201,17 @@ for filename in filenames:
     targets = xpath_host(tree)
     for target in targets:
         host_counter.update([(target, platform)])
+        if basename != 'HSTS.xml': host_filenames[target] = basename
+        
 
 
 for (host, platform), count in host_counter.most_common():
     if count > 1:
         if host in duplicate_allowed_list:
-            warn("Whitelisted hostname %s with platform '%s' shows up in %d different rulesets." % (host, platform, count))
+            warn("Whitelisted hostname %s with platform '%s' shows up in %d different rulesets." % (host, host_filenames[host], count))
         else:
             failure = 1
-            fail("Hostname %s with platform '%s' shows up in %d different rulesets." % (host, platform, count))
+            fail("Hostname %s with platform '%s' shows up in %d different rulesets." % (host, host_filenames[host], count))
     if not is_valid_target_host(host):
         failure = 1
         fail("%s failed: %s" % (host, is_valid_target_host.__doc__))
