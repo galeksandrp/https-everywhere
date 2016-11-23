@@ -22,7 +22,7 @@ if [[ $(curl "https://api.github.com/repos/EFForg/https-everywhere/pulls?client_
    echo ${RED}Branch already exist${RESET}
 fi
 #~/workspace/phantomjs-2.1.1-linux-x86_64/bin/phantomjs ~/workspace/lol.js $1 > "$FILE"
-echo '<ruleset name="eff.org">' > "$FILE"
+echo "<ruleset name=\"$1\">" > "$FILE"
 ~/workspace/Sublist3r/sublist3r.py -d $1 | grep "\.$ESCAPED" | sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]//g" | xargs -n1 -i echo -e '\t<target host="{}" />' >> "$FILE"
 echo '
 	<rule from="^http:" to="https:" />
