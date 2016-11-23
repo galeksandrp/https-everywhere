@@ -10,3 +10,5 @@ RUN pip install -r test/chromium/requirements.txt
 ENV FIREFOX /firefox-latest/firefox/firefox
 
 WORKDIR /opt
+
+RUN apt-get install python-requests
