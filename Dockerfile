@@ -12,6 +12,6 @@ ENV FIREFOX /firefox-latest/firefox/firefox
 WORKDIR /opt
 
 RUN apt-get update
-RUN apt-get install python-requests
-RUN apt-get install python-dnspython
-RUN apt-get install python-argparse
+RUN apt-get install -y python-requests
+RUN apt-get install -y python-dnspython
+RUN apt-get install -y python-argparse
