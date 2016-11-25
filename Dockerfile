@@ -16,3 +16,4 @@ RUN apt-get install -y python-requests
 RUN apt-get install -y python-dnspython
 RUN apt-get install -y python-argparse
 RUN apt-get install -y wget
+RUN apt-get install -y jq
