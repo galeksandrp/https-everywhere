@@ -16,4 +16,5 @@ RUN apt-get install -y python-requests
 RUN apt-get install -y python-dnspython
 RUN apt-get install -y python-argparse
 RUN apt-get install -y wget
-RUN apt-get install -y jq
+RUN mkdir -p ~/bin
+RUN wget https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 -o ~/bin/jq
