@@ -1,4 +1,7 @@
-DOMAIN=${1::${#1}-4}
+DOMAIN=$(echo ${1::${#1}-4} | tr '[:upper:]' '[:lower:]')
+if [ -n $2 ]; then
+  DOMAIN=$2
+fi
 ESCAPED=$(echo $DOMAIN | sed 's/\./\\\\./g')
 curl --connect-timeout 10 -i -I "https://$DOMAIN" | tr '[:upper:]' '[:lower:]' | grep 'strict-transport-security: ' | grep '; includesubdomains' | grep '; preload' && curl "https://hstspreload.appspot.com/api/v2/status?domain=$DOMAIN" | grep preloaded && exit 1
 git add .

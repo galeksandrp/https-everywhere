@@ -30,5 +30,5 @@ echo '
 </ruleset>' >> "$FILE"
 #c9 "$FILE"
 #git add .
-~/workspace/check.sh "$FILE"
+~/workspace/check.sh "$FILE" $1
 #git diff $(git rev-parse --abbrev-ref HEAD)
