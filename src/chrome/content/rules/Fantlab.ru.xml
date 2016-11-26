@@ -1,6 +1,22 @@
-<ruleset name="Fantlab.ru">
-  <target host="fantlab.ru" />
-  <target host="www.fantlab.ru" />
+<!--
+mail.fantlab.ru ¹
+www.nano.fantlab.ru ¹
+pda.fantlab.ru ¹
+samara.fantlab.ru ¹
+www.test.fantlab.ru ¹
 
-  <rule from="^http:" to="https:" />
+
+¹ mismatch
+-->
+<ruleset name="fantlab.ru">
+	<target host="fantlab.ru" />
+	<target host="www.fantlab.ru" />
+	<target host="api.fantlab.ru" />
+	<target host="cdn.fantlab.ru" />
+	<target host="data.fantlab.ru" />
+	<target host="m.fantlab.ru" />
+	<target host="nano.fantlab.ru" />
+	<target host="pina.fantlab.ru" />
+
+	<rule from="^http:" to="https:" />
 </ruleset>
