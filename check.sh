@@ -24,6 +24,7 @@ grep ' ⁵' "/tmp/$1" && echo '⁵ expired' >> "/tmp/$1"
 grep ' ⁶' "/tmp/$1" && echo '⁶ redirect' >> "/tmp/$1"
 grep ' ⁷' "/tmp/$1" && echo '⁷ protocol error' >> "/tmp/$1"
 echo '-->' >> "/tmp/$1"
+# perl -0 -p -e 's/<!--\n\n\n-->\n//' -i "/tmp/$1"
 if [ "$(cat "/tmp/$1" | sha256sum)" != "7e406daa6b81f6f133b0015c9477849d121b31d39cec8b11876f59755e8325be  -" ]; then
   cat "$1" >> "/tmp/$1"
   mv "/tmp/$1" "$1"
