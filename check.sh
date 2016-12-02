@@ -29,7 +29,7 @@ if [ "$(cat "/tmp/$1" | sha256sum)" != "7e406daa6b81f6f133b0015c9477849d121b31d3
   cat "$1" >> "/tmp/$1"
   mv "/tmp/$1" "$1"
 fi
-grep "<target host=\"$DOMAIN\" />" $1 || grep "<target host=\"www.$DOMAIN\" />" $1 || exit 0
-grep "<target host=\"www.$DOMAIN\" />" $1 || sed "s&<rule from=\"^http:\" to=\"https:\" />&<target host=\"www.$DOMAIN\" />\n\n\t<rule from=\"^http://www\\\\.$ESCAPED/\"\n\t\tto=\"https://$DOMAIN/\" />\n\n\t<rule from=\"^http:\" to=\"https:\" />&" -i $1
-grep "<target host=\"$DOMAIN\" />" $1 || sed "s&<rule from=\"^http:\" to=\"https:\" />&<target host=\"$DOMAIN\" />\n\n\t<rule from=\"^http://$ESCAPED/\"\n\t\tto=\"https://www.$DOMAIN/\" />\n\n\t<rule from=\"^http:\" to=\"https:\" />&" -i $1
-grep "<target host=\"$DOMAIN\" />" $1 && grep "<target host=\"www.$DOMAIN\" />" $1 && sed 's/ (partial)">/">/' -i $1
+grep "<target host=\"$DOMAIN\" />" "$1" || grep "<target host=\"www\.$DOMAIN\" />" "$1" || exit 0
+grep "<target host=\"www\.$DOMAIN\" />" "$1" || sed "s&<rule from=\"^http:\" to=\"https:\" />&<target host=\"www\.$DOMAIN\" />\n\n\t<rule from=\"^http://www\\\\.$ESCAPED/\"\n\t\tto=\"https://$DOMAIN/\" />\n\n\t<rule from=\"^http:\" to=\"https:\" />&" -i "$1"
+grep "<target host=\"$DOMAIN\" />" "$1" || sed "s&<rule from=\"^http:\" to=\"https:\" />&<target host=\"$DOMAIN\" />\n\n\t<rule from=\"^http://$ESCAPED/\"\n\t\tto=\"https://www\.$DOMAIN/\" />\n\n\t<rule from=\"^http:\" to=\"https:\" />&" -i "$1"
+grep "<target host=\"$DOMAIN\" />" "$1" && grep "<target host=\"www\.$DOMAIN\" />" "$1" && sed 's/ (partial)">/">/' -i "$1"
