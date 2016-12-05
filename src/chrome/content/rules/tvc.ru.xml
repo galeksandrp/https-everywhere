@@ -1,4 +1,65 @@
-<ruleset name="tvc.ru">
+<!--
+tvc.ru ⁴
+www.tvc.ru ⁴
+beta.tvc.ru ³
+betanastroenie.tvc.ru ³
+cs.tvc.ru ³
+css.tvc.ru ⁴
+editor.tvc.ru ³
+exchange.tvc.ru ³
+fo.tvc.ru ²
+forum.tvc.ru ³
+fs.tvc.ru ²
+gw-as.tvc.ru ²
+hc.tvc.ru ³
+jitter.tvc.ru ³
+l-test01.tvc.ru ³
+m.tvc.ru ⁴
+m2.tvc.ru ⁴
+misprint.tvc.ru ³
+mx7.tvc.ru ³
+mx9.tvc.ru ³
+nastroenie.tvc.ru ⁴
+news.tvc.ru ³
+nl.tvc.ru ²
+ns.tvc.ru ³
+ns3.tvc.ru ³
+ns4.tvc.ru ³
+old.tvc.ru ³
+online.tvc.ru ³
+piwik.tvc.ru ⁴
+ps.tvc.ru ³
+quiz.tvc.ru ⁴
+router4wifi01.tvc.ru ³
+router4wifi02.tvc.ru ³
+service.tvc.ru ³
+sip.tvc.ru ³
+social.tvc.ru ¹
+cmt.social.tvc.ru ¹
+staff.tvc.ru ⁴
+static.tvc.ru ⁴
+mood.static.tvc.ru ⁴
+test.tvc.ru ⁴
+static.test.tvc.ru ⁴
+static.test2.tvc.ru ⁴
+upload.tvc.ru ³
+video.tvc.ru ²
+vod.tvc.ru ⁴
+www.tvc.ru:8020 ⁷
+www.tvc.ru:8021 ⁷
+
+
+¹ mismatch
+² refused
+³ timed out
+⁴ self signed
+⁷ protocol error
+-->
+<ruleset name="tvc.ru (partial)">
 	<target host="cdn.tvc.ru" />
+	<target host="omega.tvc.ru" />
+	<target host="rproxy.tvc.ru" />
+	<target host="wcon.tvc.ru" />
+
 	<rule from="^http:" to="https:" />
 </ruleset>
