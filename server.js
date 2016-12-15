@@ -36,64 +36,54 @@ http.createServer(function(req, resp) {
         client_secret: process.env.CLIENT_SECRET,
         code: queries.code
       },
-      json: true,
       headers: {
         'User-Agent': 'request'
       }
     }, function(error, response, bodyAccess) {
       if (bodyAccess.access_token) {
-        request({
-          url: 'https://api.github.com/repos/EFForg/https-everywhere/forks?access_token=' + bodyAccess.access_token,
-          method: 'POST',
-          json: true,
-          headers: {
-            'User-Agent': 'request'
-          }
-        }, function(error, response, bodyFork) {
-          request({
-            url: 'https://api.travis-ci.org/repos/' + process.env.GITHUB_NAME + '/httpse/key',
-            json: true
-          }, function(error, response, bodyEncrypt) {
-            var rsa = require('ursa');
-            var pem = bodyEncrypt.key.replace(/RSA PUBLIC KEY/g, 'PUBLIC KEY');
-            var publicKey = rsa.createPublicKey(pem);
-            var cipherText = publicKey.encrypt("GITHUB_TOKEN=" + bodyAccess.access_token, undefined, undefined, rsa.RSA_PKCS1_PADDING);
-            var secvar = cipherText.toString('base64');
-            //var secvar = crypto.publicEncrypt(bodyEncrypt.key, new Buffer("GITHUB_TOKEN=" + bodyAccess.access_token)).toString('base64');
-            request({
-              url: 'https://api.travis-ci.org/repo/' + process.env.GITHUB_NAME + '%2Fhttpse/requests',
-              method: 'POST',
-              json: {
-                "request": {
-                  "message": queries.state + " Override the commit message: this is an api request",
-                  "branch": "template-api",
-                  "config": {
-                    "env": {
-                      "global": [
-                        "DOMAIN=" + queries.state,
-                        "GITHUB_NAME=" + bodyFork.owner.login,
-                        "ISSUE=" + 3,
-                        {
-                          "secure": secvar
-                        }
-                      ]
-                    }
-                  }
-                }
-              },
-              headers: {
-                'User-Agent': 'request',
-                "Authorization": "token " + process.env.TRAVIS_TOKEN,
-                "Travis-API-Version": 3
-              }
-            }).pipe(resp);
-          });
+        resp.writeHead(302, {
+          'Location': 'https://preview.c9users.io/galeksandrp/space/https-everywhere/cp.html?' + bodyAccess
         });
+        resp.end('ok');
       }
       else {
         resp.end('200 OK');
       }
     });
+  }
+  else if (urlParts.pathname === '/requests' && req.method === 'OPTIONS' ) {
+    resp.writeHead(200, {
+      'Access-Control-Allow-Origin': 'https://preview.c9users.io',
+      'Access-Control-Allow-Headers': 'Content-Type, Travis-API-Version'
+    });
+    resp.end('ok');
+  }
+  else if (urlParts.pathname === '/requests' && req.method === 'POST' ) {
+    // resp.writeHead(200, {
+    //   'Access-Control-Allow-Origin': 'https://preview.c9users.io',
+    //   'Access-Control-Allow-Headers': 'Content-Type, Travis-API-Version'
+    // });
+    //resp.setHeader('Access-Control-Allow-Origin', 'https://preview.c9users.io');
+    //resp.setHeader('Access-Control-Allow-Headers', 'Content-Type, Travis-API-Version');
+    var jsonString = '';
+
+    req.on('data', function(data) {
+      jsonString += data;
+    });
+
+    req.on('end', function() {
+      var headers = req.headers;
+      delete headers.host;
+      //resp.end('ok2');
+      headers["Authorization"] = "token " + process.env.TRAVIS_TOKEN;
+      request({
+        url: 'https://api.travis-ci.org/repo/' + process.env.GITHUB_NAME + '%2Fhttpse/requests',
+        method: req.method,
+        json: JSON.parse(jsonString),
+        headers: headers
+      }).pipe(resp);
+    });
+    //resp.end('ok2');
   }
   else {
     resp.end('200 OK');
