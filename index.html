@@ -3,15 +3,21 @@
 <head>
 	<meta charset="utf-8" />
 	<title>httpse</title>
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
 	<form id="url" action="https://github.com/login/oauth/authorize">
 		<input type="hidden" name="client_id" value="a1300d828d239043a5c6">
 		Input domain: <input id="state" type="text" name="state">
+		<ul>
+		<li>Without www or any other subdomain</li>
+		<li>Without protocol (e.g. without leading https://)</li>
+		</ul>
 		<input type="hidden" name="scope" value="public_repo">
-		<input type="submit" value="Submit"><br>
+		<input type="submit"><br>
 		<input type="checkbox" checked name="scope" value="public_repo,user:email">Include email in commit (if not checked, it will be replaced by username@users.noreply.github.com)<br>
 	</form>
+	<div id="panel"><button id="fixit">Fix it</button> or <button id="forcepush">Push anyway</button></div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 	<script src="background.js"></script>
 </body>
