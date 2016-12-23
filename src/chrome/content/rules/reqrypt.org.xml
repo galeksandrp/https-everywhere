@@ -1,0 +1,12 @@
+<!--
+home.reqrypt.org ²
+
+
+² refused
+-->
+<ruleset name="reqrypt.org">
+	<target host="reqrypt.org" />
+	<target host="www.reqrypt.org" />
+
+	<rule from="^http:" to="https:" />
+</ruleset>
