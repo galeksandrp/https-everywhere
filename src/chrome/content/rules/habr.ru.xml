@@ -1,12 +1,6 @@
 <ruleset name="habr.ru">
 	<target host="habr.ru" />
-	<target host="www.habr.ru" />
-	<target host="m.habr.ru" />
-
 	<target host="www.habr.ru" />
-
-	<rule from="^http://www\.habr\.ru/"
-		to="https://habr.ru/" />
 
 	<rule from="^http:" to="https:" />
 </ruleset>
