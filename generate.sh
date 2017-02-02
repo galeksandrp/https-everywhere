@@ -24,7 +24,8 @@ fi
 #~/workspace/phantomjs-2.1.1-linux-x86_64/bin/phantomjs ~/workspace/lol.js $1 > "$FILE"
 echo "<ruleset name=\"$1 (partial)\">
 	<target host=\"$1\" />" > "$FILE"
-~/workspace/Sublist3r/sublist3r.py -d $1 | grep "\.$ESCAPED" | sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]//g" | xargs -n1 -i echo -e '\t<target host="{}" />' >> "$FILE"
+~/workspace/Sublist3r/sublist3r.py -o ~/domains.txt -d $1
+cat ~/domains.txt | grep "\.$ESCAPED" | sed "s/\r//" | xargs -n1 -i echo -e '\t<target host="{}" />' >> "$FILE"
 echo '
 	<rule from="^http:" to="https:" />
 </ruleset>' >> "$FILE"
