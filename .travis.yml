@@ -1,13 +1,10 @@
-sudo: required
-language: generic
-services:
-  - docker
 script:
-  - test/travis.sh
-env:
-  - TEST=firefox FIREFOX=firefox-dev
-  - TEST=firefox FIREFOX=firefox-latest
-  - TEST=firefox FIREFOX=firefox-esr-latest
-  - TEST=chromium
-  - TEST=rules
-  - TEST=fetch
+- git remote add upstream https://github.com/EFForg/https-everywhere.git
+- git fetch upstream master
+- echo -e "machine github.com\nlogin $(echo $TRAVIS_REPO_SLUG | cut -d '/' -f 1)\npassword $GITHUB_TOKEN" >> ~/.netrc
+- git push origin upstream/master:master
+branches:
+  except:
+    - /^deploy-.*$/
+notifications:
+  email: false
