@@ -1,0 +1,6 @@
+<ruleset name="extratorrent.works">
+	<target host="extratorrent.works" />
+	<target host="www.extratorrent.works" />
+
+	<rule from="^http:" to="https:" />
+</ruleset>
