@@ -1,0 +1,11 @@
+<!--
+static.etproxy.com different content
+
+
+-->
+<ruleset name="etproxy.com">
+	<target host="etproxy.com" />
+	<target host="www.etproxy.com" />
+
+	<rule from="^http:" to="https:" />
+</ruleset>
