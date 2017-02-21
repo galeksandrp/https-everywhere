@@ -1,11 +1,7 @@
-<ruleset name="Torrents.me">
+<ruleset name="torrents.me">
+	<target host="torrents.me" />
+	<target host="www.torrents.me" />
+	<target host="cdn.torrents.me" />
 
-	<target host="torrents.me"/>
-	<target host="www.torrents.me"/>
-	<target host="cdn.torrents.me"/>
-
-
-	<rule from="^http:"
-		to="https:" />
-
+	<rule from="^http:" to="https:" />
 </ruleset>
