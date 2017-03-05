@@ -1,36 +1,96 @@
-<!-- web. self signed -->
-<ruleset name="Rufox.ru">
+<!--
+www.a.rufox.ru ¹
+www.avto.rufox.ru ¹
+bill.rufox.ru ⁴
+www.catalog.rufox.ru ¹
+cp.rufox.ru ⁴
+www.firms.rufox.ru ¹
+host2.rufox.ru ⁴
+hosting.rufox.ru ⁴
+investment.rufox.ru ²
+www.law.rufox.ru ¹
+lcab.rufox.ru ³
+ns1.rufox.ru ²
+ns2.rufox.ru ²
+ns3.rufox.ru ²
+ns4.rufox.ru ²
+ns5.rufox.ru ²
+rmm.rufox.ru ⁴
+rzonline.rufox.ru ¹
+server1.rufox.ru ³
+server3.rufox.ru ²
+speedtest.rufox.ru ⁴
+sphereonline.rufox.ru ¹
+www.video.rufox.ru ¹
+web.rufox.ru ⁴
+zabbix.rufox.ru ³
+a.rufox.ru different content
+admin.rufox.ru different content
+evlanov.rufox.ru different content
+jregru4.rufox.ru different content
+jrufox.rufox.ru different content
+jrufox4.rufox.ru different content
+morozov.rufox.ru different content
+travel-im.rufox.ru different content
+
+
+¹ mismatch
+² refused
+³ timed out
+⁴ self signed
+-->
+<ruleset name="rufox.ru">
 	<target host="rufox.ru" />
 	<target host="www.rufox.ru" />
-	<target host="my.rufox.ru" />
-	<target host="news.rufox.ru" />
+	<target host="adv.rufox.ru" />
 	<target host="afisha.rufox.ru" />
-	<target host="konkurs.rufox.ru" />
-	<target host="morozov.rufox.ru" />
-	<target host="mail.rufox.ru" />
-	<target host="foto.rufox.ru" />
-	<target host="video.rufox.ru" />
-	<target host="recept.rufox.ru" />
-	<target host="love.rufox.ru" />
-	<target host="hosting.rufox.ru" />
-	<target host="play.rufox.ru" />
-	<target host="job.rufox.ru" />
-	<target host="auto.rufox.ru" />
-	<target host="realty.rufox.ru" />
-	<target host="law.rufox.ru" />
+	<target host="akva.rufox.ru" />
 	<target host="astro.rufox.ru" />
-	<target host="corp.rufox.ru" />
-	<target host="pogoda.rufox.ru" />
-	<target host="travel.rufox.ru" />
-	<target host="history.rufox.ru" />
+	<target host="auto.rufox.ru" />
+	<target host="avto.rufox.ru" />
 	<target host="blogs.rufox.ru" />
 	<target host="catalog.rufox.ru" />
+	<target host="conf.rufox.ru" />
+	<target host="corp.rufox.ru" />
+	<target host="don.rufox.ru" />
+	<target host="fashion.rufox.ru" />
+	<target host="festival.rufox.ru" />
+	<target host="file.rufox.ru" />
+	<target host="files.rufox.ru" />
 	<target host="firms.rufox.ru" />
 	<target host="forum.rufox.ru" />
-	<target host="files.rufox.ru" />
-	<target host="top100.rufox.ru" />
-	<target host="res.rufox.ru" />
+	<target host="foto.rufox.ru" />
+	<target host="help.rufox.ru" />
+	<target host="history.rufox.ru" />
 	<target host="img.rufox.ru" />
+	<target host="job.rufox.ru" />
+	<target host="konkurs.rufox.ru" />
+	<target host="koroleva.rufox.ru" />
+	<target host="koroleva2009.rufox.ru" />
+	<target host="law.rufox.ru" />
+	<target host="love.rufox.ru" />
+	<target host="mail.rufox.ru" />
+	<target host="modem.rufox.ru" />
+	<target host="morozov2012.rufox.ru" />
+	<target host="music.rufox.ru" />
+	<target host="muza.rufox.ru" />
+	<target host="my.rufox.ru" />
+	<target host="news.rufox.ru" />
+	<target host="play.rufox.ru" />
+	<target host="pogoda.rufox.ru" />
+	<target host="poll.rufox.ru" />
+	<target host="premia.rufox.ru" />
+	<target host="realty.rufox.ru" />
+	<target host="recept.rufox.ru" />
+	<target host="reids.rufox.ru" />
+	<target host="res.rufox.ru" />
+	<target host="server2.rufox.ru" />
+	<target host="smscab.rufox.ru" />
+	<target host="subscribe.rufox.ru" />
+	<target host="supermodel.rufox.ru" />
+	<target host="top100.rufox.ru" />
+	<target host="travel.rufox.ru" />
+	<target host="video.rufox.ru" />
 
 	<rule from="^http:" to="https:" />
 </ruleset>
