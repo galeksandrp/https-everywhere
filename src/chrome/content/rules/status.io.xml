@@ -1,5 +1,6 @@
 <!--
 developers.status.io ³
+kb.status.io mixed content
 whatsup.status.io ³
 some customers get their own subdomain, which are not secureable
 
@@ -10,7 +11,6 @@ some customers get their own subdomain, which are not secureable
 	<target host="www.status.io" />
 	<target host="app.status.io" />
 	<target host="blog.status.io" />
-	<target host="kb.status.io" />
 	<target host="status.status.io" />
 	<target host="letsencrypt.status.io" />
 	<target host="iplantcore.status.io" />
