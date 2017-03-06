@@ -1,11 +1,10 @@
 <!--
 entulho.fiatjaf.alhur.es protocol error
-
+contratos.alhur.es mixed content
 
 -->
 <ruleset name="alhur.es">
 	<target host="alhur.es" />
-	<target host="contratos.alhur.es" />
 	<target host="couchdb-mapreduce-simulator.alhur.es" />
 	<target host="dpelp.alhur.es" />
 	<target host="fiatjaf.alhur.es" />
