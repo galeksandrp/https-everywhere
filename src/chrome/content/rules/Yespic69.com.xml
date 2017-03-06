@@ -15,7 +15,7 @@
 
 			- www.auto-ping.com **
 			- www.counters4u.com **
-			- sstatic1.histats.com **
+			- sstatic1.histats.com *
 			- image.ohozaa.com **
 			- www.upx69.com *
 
@@ -25,14 +25,16 @@
 -->
 <ruleset name="yespic69.com">
 
+	<!--	Direct rewrites:
+				-->
 	<target host="yespic69.com" />
-	<target host="*.yespic69.com" />
+	<target host="www.yespic69.com" />
 
 
 	<securecookie host="^(?:w*\.)?yespic69\.com$" name=".+" />
 
 
-	<rule from="^http://(www\.)?yespic69\.com/"
-		to="https://$1yespic69.com/" />
+	<rule from="^http:"
+		to="https:" />
 
 </ruleset>

@@ -1,46 +1,46 @@
 <!--
-	Bytemark Hosting
+	Other Bytemark Hosting rulesets:
+
+		- BigV.io.xml
 
 
-	Nonfunctional subdomains:
-		- blog		(redirects to http, valid cert)
-		- symbiosis (http only)
+	Nonfunctional hosts in *bytemark.co.uk:
+
+		- symbiosis *
+
+	* Refused
 
 
-	Fully covered subdomains:
+	Insecure cookies are set for these hosts:
 
-		- www
-		- forum
-		- order2009
-		- order2013
-		- panel
-		- panel-beta
-
-
-	Observed cookie domains:
-
-		- .forum
-		- order2009
-		- panel
-		- webmail
+		- status.bytemark.co.uk
 
 -->
 <ruleset name="Bytemark.co.uk (partial)">
 
+	<!--	Direct rewrites:
+				-->
 	<target host="bytemark.co.uk" />
-	<target host="*.bytemark.co.uk" />
-		<!--exclusion pattern="^http://(blog|symbiosis)\." /-->
+	<target host="blog.bytemark.co.uk" />
+	<target host="forum.bytemark.co.uk" />
+	<target host="order.bytemark.co.uk" />
+	<target host="panel.bytemark.co.uk" />
+	<target host="panel-beta.bytemark.co.uk" />
+	<target host="piwik.bytemark.co.uk" />
+	<target host="status.bytemark.co.uk" />
+	<target host="www.bytemark.co.uk" />
 
-	<target host="bigv.io" />
-	<target host="*.bigv.io" />
+		<!--exclusion pattern="^http://symbiosis\.bytemark\.co\.uk/" /-->
 
-	<rule from="^http://(www\.)?bytemark\.co\.uk/"
-		to="https://www.bytemark.co.uk/" />
 
-	<rule from="^http://(forum|order2009|order2013|panel|panel-beta)\.bytemark\.co\.uk/"
-		to="https://$1.bytemark.co.uk/" />
-		
-	<rule from="^http://(www\.)?bigv\.io/"
-		to="https://www.bigv.io/" />
+	<!--	Not secured by server:
+					-->
+	<!--securecookie host="status\.bytemark\.co\.uk$" name="^_netstat_session$" /-->
+
+	<securecookie host=".+\.bytemark\.co\.uk$" name=".+" />
+
+
+	<rule from="^http:"
+		to="https:" />
 
 </ruleset>

@@ -1,14 +1,27 @@
 <!--
-	CN: aries.uberspace.de
+	Problematic hosts in *mailvelope.com:
+
+		- www.download *
+
+	* Mismatched
+
+
+	Fully covered hosts in *mailvelope.com:
+
+		- (www.)?
+		- download
 
 -->
-<ruleset name="Mailvelope" default_off="mismatched">
+<ruleset name="Mailvelope (partial)">
 
+	<!--	Direct rewrites:
+				-->
 	<target host="mailvelope.com" />
+	<target host="download.mailvelope.com" />
 	<target host="www.mailvelope.com" />
 
 
-	<rule from="^http://(?:www\.)?mailvelope\.com/"
-		to="https://mailvelope.com/" />
+	<rule from="^http:"
+		to="https:" />
 
 </ruleset>

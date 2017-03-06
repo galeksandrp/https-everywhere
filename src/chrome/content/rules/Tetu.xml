@@ -1,14 +1,15 @@
+<!--
+    Nonfunctional subdomains:
+        - shopping     -> unreachable subdomain
+-->
+
 <ruleset name="Tetu">
 
 	<target host="tetu.com" />
-	<target host="*.tetu.com" />
-	<target host="*.shopping.tetu.com" />
-
+	<target host="www.tetu.com" />
 
 	<securecookie host="^(?:.+\.)?tetu\.com$" name=".+" />
 
-
-	<rule from="^http://(shopping\.|www\.)?tetu\.com/"
-		to="https://$1tetu.com/" />
+	<rule from="^http:" to="https:" />
 
 </ruleset>

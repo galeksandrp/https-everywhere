@@ -6,13 +6,22 @@
 
 	Nonfunctional subdomains:
 
+		- blog ¹
 		- pressrelease	(times out)
+
+	¹ Refused
 
 -->
 <ruleset name="adingo (partial)">
 
+	<!--	Direct rewrites:
+				-->
 	<target host="adingo.jp" />
-	<target host="*.adingo.jp" />
+	<target host="product.adingo.jp" />
+
+	<!--	Complications:
+				-->
+	<target host="www.adingo.jp" />
 	<target host="product.adingo.jp.eimg.jp" />
 
 
@@ -21,11 +30,13 @@
 
 	<!--	www: cert only matches ^adingo\.jp.
 						-->
-	<rule from="^https?://(?:www\.)?adingo.jp/"
+	<rule from="^http://www\.adingo\.jp/"
 		to="https://adingo.jp/" />
 
-
-	<rule from="^http://product\.adingo\.jp(?:\.eimg\.jp)?/"
+	<rule from="^http://product\.adingo\.jp\.eimg\.jp/"
 		to="https://product.adingo.jp/" />
+
+	<rule from="^http:"
+		to="https:" />
 
 </ruleset>

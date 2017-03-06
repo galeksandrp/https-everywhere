@@ -11,10 +11,9 @@
 	<target host="www.newspaperdirect.com" />
 
 
-	<securecookie host="^(www\.)?newspaperdirect\.com$" name=".*" />
+	<securecookie host="^(?:www\.)?newspaperdirect\.com$" name=".*" />
 
 
-	<rule from="^http://(www\.)?newspaperdirect\.com/"
-		to="https://$1newspaperdirect.com/" />
+	<rule from="^http:" to="https:" />
 
 </ruleset>

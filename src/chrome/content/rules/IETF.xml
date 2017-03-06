@@ -1,18 +1,39 @@
 <!--
 	Nonfunctional subdomains:
 
-		- iaoc *
-		- trustee *
+		- mail.tools ¹
+		- xml2rfc ²
 
-	* Shows www, valid cert
+	¹ Shows tools, valid cert
+	² Shows tools; mismatched, CN: *.tools.ietf.org
+
+
+	Mixed content:
+
+		- Images on www from $self *
+
+	* Secured by us
 
 -->
-<ruleset name="IETF" platform="mixedcontent">
-  <target host="ietf.org" />
-  <target host="www.ietf.org" />
-  <target host="tools.ietf.org" />
-  <target host="datatracker.ietf.org" />
+<ruleset name="IETF.org (partial)">
 
-  <rule from="^http://(?:www\.)?ietf\.org/" to="https://www.ietf.org/"/>
-  <rule from="^http://(tools|datatracker)\.ietf\.org/" to="https://$1.ietf.org/"/>
+	<!--	Direct rewrites:
+				-->
+	<target host="ietf.org" />
+	<target host="datatracker.ietf.org" />
+	<target host="iaoc.ietf.org" />
+	<target host="jabber.ietf.org" />
+	<target host="mailarchive.ietf.org" />
+	<target host="tools.ietf.org" />
+	<target host="wiki.tools.ietf.org" />
+	<target host="trustee.ietf.org" />
+	<target host="www.ietf.org" />
+
+
+	<securecookie host="^\.ietf\.org$" name="^(?:__cfduid|cf_clearance)$" />
+
+
+	<rule from="^http:"
+		to="https:" />
+
 </ruleset>

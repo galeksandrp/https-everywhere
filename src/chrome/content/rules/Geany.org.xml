@@ -1,9 +1,4 @@
 <!--
-	Problematic subdomains:
-
-		- ^	(cert only matches *.geany.org
-
-
 	Mixed content:
 
 		- css on www from www *
@@ -15,11 +10,13 @@
 -->
 <ruleset name="Geany.org (false MCB)" platform="cacert mixedcontent">
 
+	<!--	Direct rewrites:
+				-->
 	<target host="geany.org" />
 	<target host="www.geany.org" />
 
 
-	<rule from="^http://(?:www\.)?geany\.org/"
-		to="https://www.geany.org/" />
+	<rule from="^http:"
+		to="https:" />
 
 </ruleset>

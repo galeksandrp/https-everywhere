@@ -1,10 +1,7 @@
 INCLUDE('Cookie');
-// XXX: Disable STS for now.
-var STS = {
-  isSTSURI : function(uri) {
-    return false;
-  }
-};
+
+var securityService = CC['@mozilla.org/ssservice;1']
+    .getService(CI.nsISiteSecurityService);
 
 // Hack. We only need the part of the policystate that tracks content
 // policy loading.
@@ -29,17 +26,38 @@ const HTTPS = {
   httpsForced: null,
   httpsForcedExceptions: null,
   httpsRewrite: null,
-  
+
+  /**
+   * Given a channel and a list of potentially applicable rules,
+   * redirect or abort a request if appropriate.
+   *
+   * @param {RuleSet[]} applicable_list A list of potentially applicable rules
+   *   (i.e. those that match on a hostname basis).
+   * @param {nsIChannel} channel The channel to be manipulated.
+   * @param {boolean} httpNowhereEnabled Whether to abort non-https requests.
+   * @returns {boolean} True if the request was redirected; false if it was
+   *   untouched or aborted.
+   */
   replaceChannel: function(applicable_list, channel, httpNowhereEnabled) {
     var blob = HTTPSRules.rewrittenURI(applicable_list, channel.URI.clone());
+    var isSTS = securityService.isSecureURI(
+        CI.nsISiteSecurityService.HEADER_HSTS, channel.URI, 0);
+    var uri;
     if (blob === null) {
-      // Abort insecure requests if HTTP Nowhere is on
-      if (httpNowhereEnabled && channel.URI.schemeIs("http")) {
-        IOUtil.abort(channel);
+      // Abort insecure non-onion requests if HTTP Nowhere is on
+      if (httpNowhereEnabled && channel.URI.schemeIs("http") && !isSTS && !/\.onion$/.test(channel.URI.host)) {
+        var newurl = channel.URI.spec.replace(/^http:/, "https:");
+        uri = CC["@mozilla.org/network/standard-url;1"].
+                    createInstance(CI.nsIStandardURL);
+        uri.init(CI.nsIStandardURL.URLTYPE_STANDARD, 443,
+                newurl, channel.URI.originCharset, null);
+        uri = uri.QueryInterface(CI.nsIURI);
+      } else {
+        return false; // no rewrite
       }
-      return false; // no rewrite
+    } else {
+      uri = blob.newuri;
     }
-    var uri = blob.newuri;
     if (!uri) this.log(WARN, "OH NO BAD ARGH\nARGH");
 
     // Abort downgrading if HTTP Nowhere is on
@@ -56,14 +74,19 @@ const HTTPS = {
     if (c2.redirectionLimit < 10) {
       this.log(WARN, "Redirection loop trying to set HTTPS on:\n  " +
       channel.URI.spec +"\n(falling back to HTTP)");
-      if (!blob.applied_ruleset) {
-        this.log(WARN,"Blacklisting rule for: " + channel.URI.spec);
-        https_everywhere_blacklist[channel.URI.spec] = true;
+      if (blob) {
+        if (!blob.applied_ruleset) {
+          this.log(WARN,"Blacklisting rule for: " + channel.URI.spec);
+          https_everywhere_blacklist[channel.URI.spec] = true;
+        }
+        https_everywhere_blacklist[channel.URI.spec] = blob.applied_ruleset;
       }
-      https_everywhere_blacklist[channel.URI.spec] = blob.applied_ruleset;
       var domain = null;
       try { domain = channel.URI.host; } catch (e) {}
       if (domain) https_blacklist_domains[domain] = true;
+      if (httpNowhereEnabled && channel.URI.schemeIs("http")) {
+        IOUtil.abort(channel);
+      }
       return false;
     }
 
@@ -81,8 +104,6 @@ const HTTPS = {
       // This should not happen. We should only get exceptions if
       // the channel was already open.
       this.log(WARN, "Exception on nsIHttpChannel.redirectTo: "+e);
-
-      // Don't return: Fallback to NoScript ChannelReplacement.js
     }
     this.log(WARN,"Aborting redirection " + channel.name + ", should be HTTPS!");
     IOUtil.abort(channel);
@@ -130,7 +151,7 @@ const HTTPS = {
       }
       if (!cookies) return;
       var c;
-      for each (var cs in cookies.split("\n")) {
+      for (var cs of cookies.split("\n")) {
         this.log(DBUG, "Examining cookie: ");
         c = new Cookie(cs, host);
         if (!c.secure && HTTPSRules.shouldSecureCookie(alist, c, true)) {
@@ -145,13 +166,13 @@ const HTTPS = {
 
   handleInsecureCookie: function(c) {
     if (HTTPSRules.shouldSecureCookie(null, c, false)) {
-      this.log(INFO, "Securing cookie from event: " + c.domain + " " + c.name);
+      this.log(INFO, "Securing cookie from event: " + c.host + " " + c.name);
       var cookieManager = Components.classes["@mozilla.org/cookiemanager;1"]
                             .getService(Components.interfaces.nsICookieManager2);
       //some braindead cookies apparently use umghzabilliontrabilions
       var expiry = Math.min(c.expiry, Math.pow(2,31));
-      cookieManager.remove(c.host, c.name, c.path, false);
-      cookieManager.add(c.host, c.path, c.name, c.value, true, c.isHTTPOnly, c.isSession, expiry);
+      cookieManager.remove(c.host, c.name, c.path, false, c.originAttributes);
+      cookieManager.add(c.host, c.path, c.name, c.value, true, c.isHTTPOnly, c.isSession, expiry, c.originAttributes);
     }
   },
   
@@ -218,7 +239,7 @@ const HTTPS = {
     
     var cs = CC['@mozilla.org/cookieService;1'].getService(CI.nsICookieService).getCookieString(uri, req);
       
-    for each (c in dcookies) {
+    for (c of dcookies) {
       c.secure = dsecure;
       c.save();
       this.log(WARN,"Toggled secure flag on " + c);

@@ -10,45 +10,63 @@
 			- *.mm.bing.net
 
 
-	Nonfunctional domains:
+	Nonfunctional hosts in *bing.com:
 
-		- m2.cn.bing.com
-		- origin.bj1.bing.com
-		- blogs.bing.com
+		- m2.cn
+		- origin.bj1
 
 
-	Fully covered domains:
+	bat, c: Tracking beacons
 
-		- bing.com subdomains:
 
-			- c.bing		(tracking beacons)
-			- cn.bing
-			- h.bing
-			- testfamilysafety.bing
-			- udc.bing
-			- (www.)bing
+	Insecure cookies are set for these domains and hosts:
 
-		- *.mm.bing.net
-		- api.bing.com
+		- .bing.com
+		- .bat.bing.com
+		- www.bing.com
+
+
+	Mixed content:
+
+		- Images on blogs from bingblog.blob.core.windows.net *
+		- Bug on blogs from c.microsoft.com *
+
+	* Secured by us
 
 -->
-<ruleset name="Bing">
+<ruleset name="Bing.com">
 
+	<!--	Direct rewrites:
+				-->
 	<target host="bing.com" />
-	<target host="*.bing.com" />
-	<target host="*.mm.bing.net" />
+	<target host="bat.bing.com" />
+	<target host="blog.bing.com" />
+	<target host="blogs.bing.com" />
+	<target host="c.bing.com" />
+	<target host="cn.bing.com" />
+	<target host="h.bing.com" />
+	<target host="ssl.bing.com" />
+	<target host="testfamilysafety.bing.com" />
+	<target host="udc.bing.com" />
+	<target host="www.bing.com" />
+	<target host="*.api.bing.com" />
 
 
-	<securecookie host=".*\.bing\.com$" name=".+" />
+	<test url="http://db1.api.bing.com/" />
+	<test url="http://db2.api.bing.com/" />
+	<test url="http://db3.api.bing.com/" />
 
 
-	<rule from="^http://(c|cn|h|testfamilysafety|udc|www)\.bing\.com/"
-		to="https://$1.bing.com/" />
+	<!--	Not secured by server:
+					-->
+	<!--securecookie host="^\.bing\.com$" name="^(?:_EDGE_V|_FS|_SS|MUID|SRCHD|SRCHUSR)$" /-->
+	<!--securecookie host="^\.bat\.bing\.com$" name="^MR$" /-->
+	<!--securecookie host="^www\.bing\.com$" name="^(?:MUIDB|SRCHUID)$" /-->
 
-	<rule from="^http://([^/:@]*)\.mm\.bing\.net/"
-		to="https://$1.mm.bing.com/"/>
+	<securecookie host="." name="." />
 
-	<rule from="^http://([^/:@]*)\.api\.bing\.net/"
-		to="https://$1.api.bing.com/"/>
+
+	<rule from="^http:"
+		to="https:" />
 
 </ruleset>

@@ -1,6 +1,24 @@
-<ruleset name="Community.wbgames.com">
-  <target host="community.wbgames.com" />
-  <target host="www.community.wbgames.com" />
+<!--
+	(www.)?wbgames.com: Dropped
 
-  <rule from="^http://(www\.)?community\.wbgames\.com/" to="https://www.community.wbgames.com/" />
+
+	Insecure cookies are set for these hosts:
+
+		- community.wbgames.com
+
+-->
+<ruleset name="WB Games.com (partial)">
+	<target host="community.wbgames.com" />
+	<target host="wbplay.wbgames.com" />
+
+
+	<!--	Not secured by server:
+					-->
+	<!--securecookie host="community\.wbgames\.com$" name="^(?:LiSESSIONID|LithiumVisitor|LithiumUserInfo|LithiumUserSecure)$" /-->
+
+	<securecookie host="community\.wbgames\.com$" name=".+" />
+
+
+	<rule from="^http:"
+		to="https:" />
 </ruleset>
