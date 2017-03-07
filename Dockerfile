@@ -19,4 +19,5 @@ RUN apt-get install -y wget
 RUN mkdir -p ~/bin
 RUN wget https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 -O ~/bin/jq
 RUN chmod +x ~/bin/jq
+RUN apt-get install -y nodejs
 RUN npm install -g galeksandrp/check-mixed-content#245e56ad5fd5412bdad986276911e5460d9e48c6
