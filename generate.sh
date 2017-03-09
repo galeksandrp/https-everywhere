@@ -23,9 +23,8 @@ if [[ $(curl "https://api.github.com/repos/EFForg/https-everywhere/pulls?client_
 fi
 #~/workspace/phantomjs-2.1.1-linux-x86_64/bin/phantomjs ~/workspace/lol.js $1 > "$FILE"
 echo "<ruleset name=\"$1 (partial)\">
-	<target host=\"$1\" />" > "$FILE"
-~/workspace/Sublist3r/sublist3r.py -o ~/domains.txt -d $1
-cat ~/domains.txt | grep "\.$ESCAPED" | sed "s/\r//" | xargs -n1 -i echo -e '\t<target host="{}" />' >> "$FILE"
+	<target host=\"$1\" />
+	<target host=\"www.$1\" />" > "$FILE"
 echo '
 	<rule from="^http:" to="https:" />
 </ruleset>' >> "$FILE"
