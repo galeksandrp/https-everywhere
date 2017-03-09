@@ -25,7 +25,7 @@ grep ' ⁶' "/tmp/$1" && echo '⁶ redirect' >> "/tmp/$1"
 grep ' ⁷' "/tmp/$1" && echo '⁷ protocol error' >> "/tmp/$1"
 xmllint --xpath '//ruleset[not(@platform)]/target' $1 | sed 's/<target host=\"//g' | sed 's&\"/>&\n&g' | grep -v '*' | xargs -n1 -i bash -c 'check-mixed-content --depth=1 --url {} > /dev/null || echo {}' > /tmp/mixed
 cat /tmp/mixed | xargs -n1 -i sed 's&<target host="{}" />&replace&' -i $1
-perl -p -e 's/^replace\n//' -i "$1"
+perl -p -e 's/^.* replace\n//' -i "$1"
 cat /tmp/mixed | sed 's/$/ mixed content/' >> "/tmp/$1"
 echo '-->' >> "/tmp/$1"
 # perl -0 -p -e 's/<!--\n\n\n-->\n//' -i "/tmp/$1"
