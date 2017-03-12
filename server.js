@@ -81,8 +81,10 @@ http.createServer(function(req, resp) {
       //resp.end('ok2');
       headers["Authorization"] = "token " + process.env.TRAVIS_TOKEN;
       var json = JSON.parse(jsonString);
-      var cipherText = publicKey.encrypt("GITHUB_TOKEN=" + json.request.config.env.global[3], undefined, undefined, rsa.RSA_PKCS1_PADDING);
-      var secvar = cipherText.toString('base64');
+      var cipherTextLogin = publicKey.encrypt("GITHUB_NAME=" + json.login, undefined, undefined, rsa.RSA_PKCS1_PADDING);
+      var login = cipherTextLogin.toString('base64');
+      var cipherText = publicKey.encrypt("GITHUB_TOKEN=" + json.request.config.env.global[3].secure, undefined, undefined, rsa.RSA_PKCS1_PADDING);
+      var token = cipherText.toString('base64');
       request({
         url: 'https://api.travis-ci.org/repo/' + process.env.GITHUB_NAME + '%2Fhttpse/requests',
         method: req.method,
@@ -94,9 +96,11 @@ http.createServer(function(req, resp) {
               "env": {
                 "global": [
                   "DOMAIN=" + json.state,
-                  "GITHUB_NAME=" + json.login,
+                  {
+                    "secure": login
+                  },
                   "ISSUE=" + 3, {
-                    "secure": secvar
+                    "secure": token
                   }
                 ]
               }
