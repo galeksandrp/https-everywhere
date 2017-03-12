@@ -1,47 +1,90 @@
 <!--
-monitoring.unian.info ³
-photo.unian.net ³
-monitoring.unian.net ³
-pogoda.unian.ua different content
-support.unian.ua different content
+autodiscover.unian.net ³
+banner.unian.net ³
+exchange.unian.net ³
+ftp.unian.net ³
+nat.unian.net ³
+ns1.unian.net ⁴
+www.photo.unian.net ¹
+m.pogoda.unian.net ¹
+preview.unian.net ³
+rat.unian.net ³
+antypiratstvo.unian.net different content
+monitoring.unian.net mixed content
+yearago.unian.net mixed content
+yearagoeconomics.unian.net mixed content
 
 
+¹ mismatch
 ³ timed out
+⁴ self signed
 -->
-<ruleset name="UNIAN" platform="mixedcontent">
-	<target host="unian.info" />
-	<target host="www.unian.info" />
-	<target host="economics.unian.info" />
-	<target host="kiev.unian.info" />
+<ruleset name="unian.net">
 	<target host="unian.net" />
 	<target host="www.unian.net" />
+	<target host="ant.unian.net" />
+	<target host="api.unian.net" />
+	<target host="army.unian.net" />
+	<target host="army7.unian.net" />
 	<target host="consumers.unian.net" />
+	<target host="crime.unian.net" />
+	<target host="crimea.unian.net" />
+	<target host="crimea3.unian.net" />
 	<target host="culture.unian.net" />
+	<target host="culture5.unian.net" />
 	<target host="ecology.unian.net" />
 	<target host="economics.unian.net" />
+	<target host="economics5.unian.net" />
+	<target host="economics7.unian.net" />
+	<target host="education.unian.net" />
+	<target host="elections.unian.net" />
+	<target host="elite.unian.net" />
+	<target host="energy.unian.net" />
+	<target host="energy7.unian.net" />
+	<target host="eunews.unian.net" />
+	<target host="eunews5.unian.net" />
+	<target host="eunews7.unian.net" />
+	<target host="euro-2012.unian.net" />
+	<target host="euro-20125.unian.net" />
+	<target host="f1h2o.unian.net" />
+	<target host="files.unian.net" />
+	<target host="football.unian.net" />
+	<target host="forum.unian.net" />
+	<target host="fundmarket.unian.net" />
 	<target host="health.unian.net" />
+	<target host="health5.unian.net" />
+	<target host="health7.unian.net" />
+	<target host="human-rights.unian.net" />
+	<target host="human-rights5.unian.net" />
 	<target host="images.unian.net" />
+	<target host="images7.unian.net" />
+	<target host="insurance.unian.net" />
+	<target host="kharkiv.unian.net" />
+	<target host="kharkiv5.unian.net" />
 	<target host="kiev.unian.net" />
+	<target host="kiev7.unian.net" />
+	<target host="lviv.unian.net" />
+	<target host="media-market.unian.net" />
+	<target host="new.unian.net" />
+	<target host="p.unian.net" />
+	<target host="photo.unian.net" />
 	<target host="pogoda.unian.net" />
 	<target host="press.unian.net" />
 	<target host="religions.unian.net" />
+	<target host="religions7.unian.net" />
+	<target host="rights.unian.net" />
+	<target host="rss.unian.net" />
+	<target host="seminars.unian.net" />
 	<target host="social.unian.net" />
 	<target host="sport.unian.net" />
-	<target host="yearago.unian.net" />
-	<target host="unian.ua" />
-	<target host="www.unian.ua" />
-	<target host="army.unian.ua" />
-	<target host="consumers.unian.ua" />
-	<target host="ecology.unian.ua" />
-	<target host="economics.unian.ua" />
-	<target host="grechkometr.unian.ua" />
-	<target host="health.unian.ua" />
-	<target host="kiev.unian.ua" />
-	<target host="press.unian.ua" />
-	<target host="religions.unian.ua" />
-	<target host="sport.unian.ua" />
-	<target host="ternopil.unian.ua" />
-	<target host="vinnica.unian.ua" />
+	<target host="stockmarket.unian.net" />
+	<target host="stockmarket5.unian.net" />
+	<target host="subscribe.unian.net" />
+	<target host="ternopil.unian.net" />
+	<target host="test.unian.net" />
+	<target host="transport.unian.net" />
+	<target host="vinnica.unian.net" />
+	<target host="www7.unian.net" />
 
 	<rule from="^http:" to="https:" />
 </ruleset>
