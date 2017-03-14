@@ -16,3 +16,23 @@ s%/: (28, 'Operation timed out after .* milliseconds with 0 bytes received')% ³
 s%/: (35, 'error:140770FC:SSL routines:SSL23_GET_SERVER_HELLO:unknown protocol')% ⁷%
 s%ERROR src/chrome/content/rules/.*\.xml: Non-2xx HTTP code: http://%%
 s%/ (200) => https://.*% non-2xx http code%
+
+# /: (7, 'Failed to connect to www2.handelsbanken.fi port 80: Connection refused')
+# /: (7, 'Failed to connect to www.viewablemedia.net port 80: No route to host')
+# /: (7, 'Failed to connect to www.lumovies.com port 80: Connection timed out')
+# /: (7, 'Failed to connect to vn.mirror.archlinuxarm.org port 443: Protocol not available')
+# /: (52, 'Empty reply from server')
+# /: (56, 'Recv failure: Connection reset by peer')
+# /: (56, 'SSL read: error:00000000:lib(0):func(0):reason(0), errno 104')
+# /: (51, "SSL: certificate subject name 'www.estoniaevoting.org' does not match target host name '141.212.120.80'")
+# /: (35, 'error:140773E8:SSL routines:SSL23_GET_SERVER_HELLO:reason(1000)
+# /: (35, 'error:14077410:SSL routines:SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure')
+# /: (35, 'error:1407742E:SSL routines:SSL23_GET_SERVER_HELLO:tlsv1 alert protocol version')
+# /: (35, 'error:14077438:SSL routines:SSL23_GET_SERVER_HELLO:tlsv1 alert internal error')
+# /: (35, 'error:14077458:SSL routines:SSL23_GET_SERVER_HELLO:tlsv1 unrecognized name')
+# /: (35, 'error:1408F119:SSL routines:SSL3_GET_RECORD:decryption failed or bad record mac')
+# /: (35, 'error:14092105:SSL routines:SSL3_GET_SERVER_HELLO:wrong cipher returned')
+# /: (35, 'error:140943FC:SSL routines:SSL3_READ_BYTES:sslv3 alert bad record mac')
+# /: (35, 'error:14094410:SSL routines:SSL3_READ_BYTES:sslv3 alert handshake failure')
+# /: (28, 'Resolving timed out after 10520 milliseconds')
+# /: (18, 'transfer closed with outstanding read data remaining')
