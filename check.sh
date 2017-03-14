@@ -3,7 +3,7 @@ if [ -n $2 ]; then
   DOMAIN=$2
 fi
 ESCAPED=$(echo $DOMAIN | sed 's/\./\\\\./g')
-curl --connect-timeout 10 -i -I "https://$DOMAIN" | tr '[:upper:]' '[:lower:]' | grep 'strict-transport-security: ' | grep '; includesubdomains' | grep '; preload' && curl "https://hstspreload.appspot.com/api/v2/status?domain=$DOMAIN" | grep preloaded && exit 1
+curl --connect-timeout 10 -i -I "https://$DOMAIN" | tr '[:upper:]' '[:lower:]' | grep 'strict-transport-security: ' | grep '; includesubdomains' | grep '; preload' && curl "https://hstspreload.org/api/v2/status?domain=$DOMAIN" | grep preloaded && exit 1 || curl "https://hstspreload.org/api/v2/preloadable?domain=$DOMAIN" | jq -e '.errors | length == 0' && exit 1
 git add .
 ~/workspace/travis.sh > ~/workspace/log.txt
 grep ERROR ~/workspace/log.txt | sed -f ~/workspace/sed1.xml > ~/workspace/sed.xml
