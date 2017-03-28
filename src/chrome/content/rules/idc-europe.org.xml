@@ -1,0 +1,6 @@
+<ruleset name="idc-europe.org">
+	<target host="idc-europe.org" />
+	<target host="www.idc-europe.org" />
+
+	<rule from="^http:" to="https:" />
+</ruleset>
