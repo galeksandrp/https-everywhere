@@ -10,3 +10,7 @@ RUN pip install -r test/chromium/requirements.txt
 ENV FIREFOX /firefox-latest/firefox/firefox
 
 WORKDIR /opt
+
+RUN apt-get update && apt-get install -y python3-pip
+RUN pip3 install dnspython
+RUN pip3 install requests

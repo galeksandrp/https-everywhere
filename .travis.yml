@@ -3,11 +3,5 @@ language: generic
 services:
   - docker
 script:
-  - test/travis.sh
-env:
-  - TEST=firefox FIREFOX=firefox-dev
-  - TEST=firefox FIREFOX=firefox-latest
-  - TEST=firefox FIREFOX=firefox-esr-latest
-  - TEST=chromium
-  - TEST=rules
-  - TEST=fetch
+  - docker build -t httpse .
+  - docker run --rm -ti -v $(pwd):/opt -w /opt httpse bash -c "./utils/generate-ruleset.py --help"
