@@ -4,4 +4,5 @@ services:
   - docker
 script:
   - docker build -t httpse .
-  - docker run --rm -ti -v $(pwd):/opt -w /opt httpse bash -c "./utils/generate-ruleset.py --help"
+  - docker run --rm -ti -v $(pwd):/opt -w /opt httpse bash -c "LC_ALL=en_US.UTF-8 ./utils/generate-ruleset.py -i arbitrary.ch.list -o rules/Arbitrary.ch.xml"
+  - git diff
