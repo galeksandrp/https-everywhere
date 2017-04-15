@@ -1,28 +1,7 @@
 "use strict";
-/**
- * Fetch and parse XML to be loaded as RuleSets.
- *
- * @param url: a relative URL to local XML
- */
-function loadExtensionFile(url, returnType) {
-  var xhr = new XMLHttpRequest();
-  // Use blocking XHR to ensure everything is loaded by the time
-  // we return.
-  xhr.open("GET", chrome.extension.getURL(url), false);
-  xhr.send(null);
-  // Get file contents
-  if (xhr.readyState != 4) {
-    return;
-  }
-  if (returnType === 'xml') {
-    return xhr.responseXML;
-  }
-  return xhr.responseText;
-}
 
-
-// Rules are loaded here
-var all_rules = new RuleSets(localStorage);
+// Fetch and parse XML to be loaded as RuleSets.
+all_rules = new RuleSets(localStorage);
 
 // Allow users to enable `platform="mixedcontent"` rulesets
 var enableMixedRulesets = false;
@@ -87,7 +66,7 @@ var wr = chrome.webRequest;
 /**
  * Load all stored user rules
  */
-var loadStoredUserRules = function() {
+function loadStoredUserRules() {
   var rules = getStoredUserRules();
   var i;
   for (let rule of rules) {
