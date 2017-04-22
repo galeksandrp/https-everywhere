@@ -1,0 +1,7 @@
+<ruleset name="kontur-extern.ru">
+	<target host="kontur-extern.ru" />
+	<target host="www.kontur-extern.ru" />
+	<target host="forum.kontur-extern.ru" />
+
+	<rule from="^http:" to="https:" />
+</ruleset>
