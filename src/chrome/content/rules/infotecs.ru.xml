@@ -1,0 +1,29 @@
+<!--
+academy.infotecs.ru ¹
+expw-e.infotecs.ru ³
+mailserver.infotecs.ru ³
+mx0.infotecs.ru ²
+testcert.infotecs.ru non-2xx http code
+regboxproduct.infotecs.ru different content
+urog.infotecs.ru different content
+
+
+¹ mismatch
+² refused
+³ timed out
+-->
+<ruleset name="infotecs.ru">
+	<target host="infotecs.ru" />
+	<target host="www.infotecs.ru" />
+	<target host="docs.infotecs.ru" />
+	<target host="edu.infotecs.ru" />
+	<target host="files.infotecs.ru" />
+	<target host="ftp.infotecs.ru" />
+	<target host="register1.infotecs.ru" />
+	<target host="register2.infotecs.ru" />
+	<target host="register3.infotecs.ru" />
+	<target host="updateids.infotecs.ru" />
+	<target host="updateids2.infotecs.ru" />
+
+	<rule from="^http:" to="https:" />
+</ruleset>
