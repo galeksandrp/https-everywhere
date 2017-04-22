@@ -1,0 +1,14 @@
+<!--
+forum.signal-com.ru ⁴
+ns3.signal-com.ru ¹
+
+
+¹ mismatch
+⁴ self signed
+-->
+<ruleset name="signal-com.ru">
+	<target host="signal-com.ru" />
+	<target host="www.signal-com.ru" />
+
+	<rule from="^http:" to="https:" />
+</ruleset>
