@@ -1,19 +1,19 @@
-## HTTPS Everywhere Development
+## Участие в разработке HTTPS Everywhere
 
-### Pointers for developers
+### Заметки для разработчиков
 
-- **License:** GPL version 3+ (although most of the code is GPL-2 compatible)
-- **Source code:** Available via Git with `git clone https://github.com/EFForg/https-everywhere.git`. You can fork and open pull requests using Github at [https://github.com/EFForg/https-everywhere](https://github.com/EFForg/https-everywhere).
-- **Translations:** If you would like to help translate HTTPS Everywhere into another language, you can do that [through Transifex](https://www.transifex.com/otf/torproject/).
-- **Bug tracker:** Use the [GitHub issue tracker](https://github.com/EFForg/https-everywhere/issues/) or the [Tor Project issue tracker](https://trac.torproject.org/projects/tor/report/19). For the Tor Project issue tracker, you can make an account or use the anonymous one — "cypherpunks"/"writecode". You won't see replies unless you put an email address in the CC field. Bugs that are caused by rulesets should be tagged "httpse-ruleset-bug", and can be viewed [in this report](https://trac.torproject.org/projects/tor/report/48).
-- **Mailing lists:** The [https-everywhere](https://lists.eff.org/mailman/listinfo/https-everywhere) list ([archives](https://lists.eff.org/pipermail/https-everywhere/)) is for discussing the project as a whole; the [https-everywhere-rules](https://lists.eff.org/mailman/listinfo/https-everywhere-rules) mailing list ([archives](https://lists.eff.org/pipermail/https-everywhere-rules)) is for discussing the [rulesets](https://www.eff.org/https-everywhere/rulesets) and their contents, including patches and git pull requests.
+- **Лицензия:** GPL версии 3+ (однако большинство кода совместимо с GPL-2)
+- **Исходный код:** Доступен через Git через `git clone https://github.com/EFForg/https-everywhere.git`. Можете форкать и отправлять пулл реквесты при помощи Github на [https://github.com/EFForg/https-everywhere](https://github.com/EFForg/https-everywhere).
+- **Перевод:** Если вы хотите перевести HTTPS Everywhere на другой язык, можете сделать это [на Transifex](https://www.transifex.com/otf/torproject/).
+- **Система отслеживания ошибок:** Используйте [трекер GitHub](https://github.com/EFForg/https-everywhere/issues/) или [трекер Tor Project](https://trac.torproject.org/projects/tor/report/19). На трекере Tor Project вы можете создать аккаунт или использовать анонимный — "cypherpunks"/"writecode". Вы не будете получать ответы пока не вставите адрес электронной почты в поле CC. Ошибки, вызываемые списками правил должны быть помечены тегом "httpse-ruleset-bug", и могут быть увидены [в этом отчете](https://trac.torproject.org/projects/tor/report/48).
+- **Списки рассылки:** Список [https-everywhere](https://lists.eff.org/mailman/listinfo/https-everywhere) ([архивы](https://lists.eff.org/pipermail/https-everywhere/)) создан для обсуждения всего проекта; список рассылки [https-everywhere-rules](https://lists.eff.org/mailman/listinfo/https-everywhere-rules) ([архивы](https://lists.eff.org/pipermail/https-everywhere-rules)) для обсуждения [списков правил](https://www.eff.org/https-everywhere/rulesets) и их содержимого, включая патчи и пулл реквесты.
 - **IRC:** `#https-everywhere` on `irc.oftc.net`. If you ask a question, be sure to stay in the channel — someone may reply a few hours or a few days later.
 
-### Testing and contributing changes to the source code
+### Тестирование и слияние изменений исходного кода
 
-HTTPS Everywhere consists of a large number of rules for switching sites from HTTP to HTTPS. You can read more about how to write these rules [here](https://www.eff.org/https-everywhere/rulesets).
+HTTPS Everywhere состоит из большого числа правил перенаправления сайтов с HTTP на HTTPS. Вы можете прочитать больше о том как создавать эти правила [здесь](https://www.eff.org/https-everywhere/rulesets).
 
-If you want to create new rules to submit to us, we expect them to be in the src/chrome/content/rules directory. That directory also contains a useful script, make-trivial-rule, to create a simple rule for a specified domain. There is also a script called trivial-validate.py, to check all the pending rules for several common errors and oversights. For example, if you wanted to make a rule for the example.com domain, you could run
+Если вы хотите создавать правила, чтобы отправить их нам, мы ожидаем увидеть их в директории src/chrome/content/rules. Эта директория также содержит полезный скрипт, make-trivial-rule, для создания простого правила для определенного домена. Также в ней есть скрипт названный trivial-validate.py, для проверки всех поступающих правил на некоторые общие ошибки и опечатки. Например, если вы хотите создать правило для домена example.com, вы можете запустить
 
     bash ./make-trivial-rule example.com
 
