@@ -3,7 +3,7 @@
 ### Заметки для разработчиков
 
 - **Лицензия:** GPL версии 3+ (хотя большинство кода совместимо с GPL-2)
-- **Исходный код:** Доступен через Git через `git clone https://github.com/EFForg/https-everywhere.git`. Можете форкать и отправлять пулл реквесты при помощи Github на [https://github.com/EFForg/https-everywhere](https://github.com/EFForg/https-everywhere).
+- **Исходный код:** Доступен через Git командой `git clone https://github.com/EFForg/https-everywhere.git`. Можете форкать и отправлять пулл реквесты при помощи Github на [https://github.com/EFForg/https-everywhere](https://github.com/EFForg/https-everywhere).
 - **Перевод:** Если вы хотите перевести HTTPS Everywhere на другой язык, можете сделать это [на Transifex](https://www.transifex.com/otf/torproject/).
 - **Система отслеживания ошибок:** Используйте [трекер GitHub](https://github.com/EFForg/https-everywhere/issues/) или [трекер Tor Project](https://trac.torproject.org/projects/tor/report/19). На трекере Tor Project вы можете создать аккаунт или использовать анонимный — "cypherpunks"/"writecode". Вы не будете получать ответы пока не вставите адрес электронной почты в поле CC. Ошибки, вызываемые списками правил должны быть помечены тегом "httpse-ruleset-bug", и могут быть увидены [в этом отчете](https://trac.torproject.org/projects/tor/report/48).
 - **Списки рассылки:** Список [https-everywhere](https://lists.eff.org/mailman/listinfo/https-everywhere) ([архивы](https://lists.eff.org/pipermail/https-everywhere/)) создан для обсуждения всего проекта; список рассылки [https-everywhere-rules](https://lists.eff.org/mailman/listinfo/https-everywhere-rules) ([архивы](https://lists.eff.org/pipermail/https-everywhere-rules)) для обсуждения [списков правил](https://www.eff.org/https-everywhere/rulesets) и их содержимого, включая патчи и пулл реквесты.
@@ -17,7 +17,7 @@ HTTPS Everywhere состоит из большого числа правил п
 
     bash ./make-trivial-rule example.com
 
-inside the rules directory. This would create Example.com.xml, which you could then take a look at and edit based on your knowledge of any specific URLs at example.com that do or don't work in HTTPS.
+находясь в директории правил. Команда создаст Example.com.xml, which you could then take a look at and edit based on your knowledge of any specific URLs at example.com that do or don't work in HTTPS.
 
 Before submitting your change, you should test it in Firefox and/or Chrome, as applicable. You can build the latest version of the extension and run it in a standalone Firefox profile using:
 
