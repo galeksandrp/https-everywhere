@@ -2,7 +2,7 @@
 
 ### Заметки для разработчиков
 
-- **Лицензия:** GPL версии 3+ (однако большинство кода совместимо с GPL-2)
+- **Лицензия:** GPL версии 3+ (хотя большинство кода совместимо с GPL-2)
 - **Исходный код:** Доступен через Git через `git clone https://github.com/EFForg/https-everywhere.git`. Можете форкать и отправлять пулл реквесты при помощи Github на [https://github.com/EFForg/https-everywhere](https://github.com/EFForg/https-everywhere).
 - **Перевод:** Если вы хотите перевести HTTPS Everywhere на другой язык, можете сделать это [на Transifex](https://www.transifex.com/otf/torproject/).
 - **Система отслеживания ошибок:** Используйте [трекер GitHub](https://github.com/EFForg/https-everywhere/issues/) или [трекер Tor Project](https://trac.torproject.org/projects/tor/report/19). На трекере Tor Project вы можете создать аккаунт или использовать анонимный — "cypherpunks"/"writecode". Вы не будете получать ответы пока не вставите адрес электронной почты в поле CC. Ошибки, вызываемые списками правил должны быть помечены тегом "httpse-ruleset-bug", и могут быть увидены [в этом отчете](https://trac.torproject.org/projects/tor/report/48).
