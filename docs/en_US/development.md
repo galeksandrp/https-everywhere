@@ -19,64 +19,64 @@ HTTPS Everywhere состоит из большого числа правил п
 
 находясь в директории правил. Команда создаст Example.com.xml, which you could then take a look at and edit based on your knowledge of any specific URLs at example.com that do or don't work in HTTPS.
 
-Before submitting your change, you should test it in Firefox and/or Chrome, as applicable. You can build the latest version of the extension and run it in a standalone Firefox profile using:
+Прежде чем отправлять свои изменения, вы должны проверить их в Firefox и/или Chrome, если возможно. Вы можете собрать последнюю версию расширения и запустить ее в отдельном профиле Firefox командой:
 
     bash ./test.sh --justrun
 
-Similarly, to build and run in a standalone Chromium profile, run:
+Аналогично, для сборки и запуска в отдельном профиле Chromium, запустите:
 
     bash ./run-chromium.sh
 
-You should thoroughly test your changes on the target site: Navigate to as wide a variety of pages as you can find. Try to comment or log in if applicable. Make sure everything still works properly.
+Вы должны тщательно проверить свои изменения на целевом сайте: Посетите как можно больше страниц которые вы можете найти. Попробуйте оставить комментарий или войти на сайт если возможно. Убедитесь что все по прежнему работает нормально.
 
-After running your manual tests, run the automated tests and the fetch tests:
+Закончив ручные тесты, запустите автоматические тесты и тесты запросов:
 
     bash ./test.sh
 
     bash ./fetch-test.sh
 
-This will catch some of the most common types of errors, but is not a guaranteed of correctness.
+Они проверят большинство общих видов ошибок, но не гарантируют абсолютное их отсутствие.
 
-Once you've tested your changes, you can submit them for review via any of the following:
+Как только вы протестировали свои изменения, вы можете отправить из на проверку любым из следующих способов:
 
-- Open a pull request at [https://github.com/EFForg/https-everywhere](https://github.com/EFForg/https-everywhere).
-- Email https-everywhere-rules@eff.org to tell us about your changes. You can use the following command to create a patch file: `git format-patch`
+- Откройте пулл реквест на [https://github.com/EFForg/https-everywhere](https://github.com/EFForg/https-everywhere).
+- Пошлите письмо на https-everywhere-rules@eff.org и расскажите нам о своих изменениях. Вы можете использовать следующую команду для создания патча: `git format-patch`
 
-### A quick HOWTO on working with Git
+### Быстрая справка по работе с Git
 
-You may want to also look at the [Git Reference](http://gitref.org/), [GitHub Help Site](https://help.github.com/) and the [Tor Project's Git documentation](https://gitweb.torproject.org/githax.git/tree/doc/Howto.txt) to fill in the gaps here, but the below should be enough to get the basics of the workflow down.
+Вы можете также взглянуть на [Git Reference](http://gitref.org/), [GitHub Help Site](https://help.github.com/) и [Tor Project's Git documentation](https://gitweb.torproject.org/githax.git/tree/doc/Howto.txt) для заполнения пробелов в этом тексте, но нижеследующего должно быть достаточно для понимания основ рабочего процесса.
 
-First, tell git your name:
+Для начала, назовите git свое имя:
 
     git config --global user.name "Your Name"   git config --global user.email "you@example.com"
 
-Then, get a copy of the 'origin' repository:
+Затем, получите копию 'origin' репозитория:
 
     git clone https://github.com/EFForg/https-everywhere.git
     cd https-everywhere
 
-Alternatively, if you already have a Github account, you can create a "fork" of the repository on Github at [https://github.com/EFForg/https-everywhere](https://github.com/EFForg/https-everywhere). See [this page](https://help.github.com/articles/fork-a-repo) for a tutorial.
+Или же, если у вас уже есть аккаунт Github, вы можете создать "fork" репозитория на Github на [https://github.com/EFForg/https-everywhere](https://github.com/EFForg/https-everywhere). Смотрите [эту страницу](https://help.github.com/articles/fork-a-repo) для пояснений.
 
-Once you have a local copy of the repository, create a new branch for your changes and check it out:
+Как только вы получили локальную копию репозитория, создайте новую ветку для ваших изменений и перейдите на нее:
 
     git checkout -b my-new-rules master
 
-When you want to send us your work, you'll need to add any new files to the index with git add:
+Если вы хотите отправить нам свою работу, вам следует добавить нужные файлы в индекс командой git add:
 
     git add ./src/chrome/content/rules/MyRule1.xml
     git add ./src/chrome/content/rules/MyRule2.xml
 
-You can now commit your changes to the local branch. To make things easier, you should commit each xml file individually:
+Теперь вы можете зафиксировать ваши изменения в локальной ветке. Для того, чтобы облегчить задачу, вы должны фиксировать каждый файл отдельно:
 
     git commit ./src/chrome/content/rules/MyRule1.xml
     git commit ./src/chrome/content/rules/MyRule2.xml
 
-Now, you need a place to publish your changes. You can create a github account here: [https://github.com/join](https://help.github.com/). [https://help.github.com/](https://help.github.com/) describes the account creation process and some other github-specific things.
+Теперь, вам нужно где то опубликовать ваши изменения. Вы можете создать аккаунт github здесь: [https://github.com/join](https://help.github.com/). [https://help.github.com/](https://help.github.com/) описывает процесс создания аккаунта и некоторые другие специфичные для github вещи.
 
-Once you have created your account and added your remote in your local checkout, you want to push your branch to your github remote:
+Как только вы создали аккаунт и добавили ваш удаленный репозиторий в свой локальный репозиторий, вы захотите отправить свою ветку на удаленный репозиторий:
 
     git push github my-new-rules:my-new-rules
 
-Periodically, you should re-fetch the master repository:
+Периодически, вы должны заново получать master репозитория:
 
     git pull master
