@@ -10,6 +10,7 @@ var bodyEncrypt = {
 };
 var pem = bodyEncrypt.key.replace(/RSA PUBLIC KEY/g, 'PUBLIC KEY');
 var publicKey = rsa.createPublicKey(pem);
+var allowedBranches = {'template-api': 1, 'template-foorack-api': 1, 'template-pgerber-api': 1}
 
 http.createServer(function(req, resp) {
   var urlParts = url.parse(req.url);
@@ -91,7 +92,7 @@ http.createServer(function(req, resp) {
         json: {
           "request": {
             "message": json.state + " Override the commit message: this is an api request",
-            "branch": "template-api",
+            "branch": allowedBranches[json.branch] ? json.branch : Object.keys(allowedBranches)[0],
             "config": {
               "env": {
                 "global": [
