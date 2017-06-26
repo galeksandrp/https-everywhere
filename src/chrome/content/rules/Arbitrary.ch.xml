@@ -1,0 +1,20 @@
+<!--
+        Non-functional hosts:
+                Certificate mismatch:
+                        - may.arbitrary.ch
+                        - mx1.arbitrary.ch
+                Self-signed certificate:
+                        - tor-relay1.arbitrary.ch
+                Timeout on https:
+                        - ns1.arbitrary.ch
+                        - zoe.arbitrary.ch
+-->
+<ruleset name="rules/Arbitrary.ch">
+        <target host="arbitrary.ch" />
+        <target host="www.arbitrary.ch" />
+        <target host="test.arbitrary.ch" />
+
+        <securecookie host=".+" name=".+" />
+
+        <rule from="^http:" to="https:" />
+</ruleset>
