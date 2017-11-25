@@ -11,7 +11,7 @@ ENV FIREFOX /firefox-latest/firefox/firefox
 
 WORKDIR /opt
 
-RUN apt-get update && apt-get install -y wget npm nodejs-legacy python3-pip sudo libffi-dev
+RUN apt-get update && apt-get install -y wget npm nodejs-legacy python3-pip sudo libffi-dev locales
 RUN wget https://raw.githubusercontent.com/aboul3la/Sublist3r/master/requirements.txt
 RUN pip install -r requirements.txt
 RUN wget https://raw.githubusercontent.com/Foorack/httpse-ruleset-generator/master/requirements.txt -O requirements3-foorack3.txt
